@@ -1,3 +1,3 @@
-# 05-Web-DragDropTodoApp
+# 06-Web-DragDropTodoApp
 
 - [Open in CodeSandbox](https://codesandbox.io/s/650mne)
