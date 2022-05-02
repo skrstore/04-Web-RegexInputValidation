@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  background-color: #f1f1f1;
+  font-family: sans-serif;
+}
+
+.container {
+  padding: 1rem;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}

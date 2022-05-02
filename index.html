@@ -4,48 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>04-Web-RegexInputValidation</title>
+    <title>Web-FormValidation</title>
+
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <form action="">
-      <p>
-        Text :
-        <input
-          type="text"
-          pattern="^[0-9]{4}[A-Z]{4}$"
-          required
-          oninput="checkText(event)"
-        />
-        <span class="text__message"></span>
-      </p>
-      <p>
-        <input type="submit" value="Submit" />
-      </p>
-    </form>
-    <script>
-      const textElem = document.querySelector(".text__message");
+    <div class="container">
+      <h1>Custom Regex Validation</h1>
+      <form action="">
+        <p>
+          Text :
+          <input
+            type="text"
+            pattern="^[0-9]{4}[A-Z]{4}$"
+            required
+            oninput="checkText(event)"
+          />
+          <span class="text__message"></span>
+        </p>
+        <p>
+          <input type="submit" value="Submit" />
+        </p>
+      </form>
 
-      function checkText(event) {
-        let testText = "1234ABCD"; // sample string that fully matches the pattern
-        const { target } = event;
-        if (!target.checkValidity()) {
-          const { value } = target;
-          testText = value + testText.slice(value.length);
-          const re = new RegExp(event.target.pattern);
-          if (!re.test(testText)) {
-            target.value = value.substr(0, value.length - 1);
-            if (!target.checkValidity()) {
-              textElem.innerHTML = "Invalid, e.g. 1234ABCD ";
+      <script>
+        const textElem = document.querySelector(".text__message");
+
+        function checkText(event) {
+          let testText = "1234ABCD"; // sample string that fully matches the pattern
+          const { target } = event;
+          if (!target.checkValidity()) {
+            const { value } = target;
+            testText = value + testText.slice(value.length);
+            const re = new RegExp(event.target.pattern);
+            if (!re.test(testText)) {
+              target.value = value.substr(0, value.length - 1);
+              if (!target.checkValidity()) {
+                textElem.innerHTML = "Invalid, e.g. 1234ABCD ";
+                textElem.classList.add("invalid");
+                textElem.classList.remove("valid");
+              } else {
+                textElem.innerHTML = "Valid";
+                textElem.classList.remove("invalid");
+                textElem.classList.add("valid");
+              }
             } else {
-              textElem.innerHTML = "Valid";
+              textElem.innerHTML = "";
             }
           } else {
-            textElem.innerHTML = "";
+            textElem.innerHTML = "Valid";
+            textElem.classList.remove("invalid");
+            textElem.classList.add("valid");
           }
-        } else {
-          textElem.innerHTML = "Valid";
         }
-      }
-    </script>
+      </script>
+    </div>
+    <hr />
   </body>
 </html>
