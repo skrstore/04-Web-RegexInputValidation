@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Recorder</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light" style="background-color: #1b7eff">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white"> Screen<b>Recorder</b> </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row justify-content-around">
+        <button
+          class="col-5 col-sm-4 col-lg-2 mt-3 btn btn-outline-primary"
+          id="start"
+        >
+          Start Recording
+        </button>
+        <button
+          class="col-5 col-sm-4 col-lg-2 mt-3 btn btn-outline-primary"
+          id="stop"
+          disabled
+        >
+          Stop Recording
+        </button>
+        <button
+          class="col-5 col-sm-4 col-lg-2 mt-3 btn btn-outline-success"
+          id="save"
+          disabled
+        >
+          Save Recording
+        </button>
+        <button
+          class="col-5 col-sm-4 col-lg-2 mt-3 btn btn-outline-danger"
+          id="clear"
+        >
+          Clear Recording
+        </button>
+      </div>
+      <div class="row justify-content-center text-center my-4">
+        <p class="col-6">
+          <label for="recordAudioCheckBox">Audio</label>
+          <input id="recordAudioCheckBox" type="checkbox" checked />
+        </p>
+        <p class="col-6">
+          <label for="captureScreenCheckBox">Screen</label>
+          <input id="captureScreenCheckBox" type="checkbox" checked />
+        </p>
+        <p class="col-6">Duration - <span id="duration">0</span> s</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-10" id="outputContainer"></div>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
